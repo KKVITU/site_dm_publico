@@ -127,12 +127,13 @@
                                             <div class="col-md-6">
                                                 <div class="card-body">
                                                     <label for="tipo">Data de Nascimento:</label>
-                                                    <input disabled class="form-control" value="<?php echo $data_nascimento ?>" type="date" placeholder="" name="dt_nasc" id="dt_nasc">
+                                                    <input disabled class="form-control" value="<?php echo $linha['data_nascimento'] ?>" type="date" placeholder="" name="dt_nasc" id="dt_nasc">
                                                     <div class="invalid-feedback">
                                                         Insira a data de Nascimento
                                                     </div>
                                                 </div>
                                             </div>
+
 
                                             <div class="col-md-6">
                                                 <div class="card-body">

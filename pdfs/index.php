@@ -68,7 +68,6 @@ $html = '
 
     <div style="text-align: center; margin: 0 auto; width: 90%;">
         <p><b>DECLARAÇÃO DE ENDEREÇO DOS ÚLTIMOS 5 ANOS</b></p>
-        <p><b>Ao Sr. Comandante da 8ª Região Militar</b></p>
 
         <p style="margin-bottom: 40px; text-align: left; margin-top: 50px">Eu, <b>' . $nome_cliente . '</b>, ' . $nacionalidade . ', ' . $estado_civil . ', natural de ' . $naturalidade . ', nascido em ' . $data_nascimento . ', ' . $profissao . ', portador da carteira de identidade nº <b>' . $identidade . '</b> ' . $orgao_expedidor . ', inscrito no CPF sob o nº <b>' . $cpf . '</b>, residente e domiciliado na <b>' . $rua . ', ' . $numero_casa . ', CEP ' . $cep . ', ' . $ponto_referencia . ' – ' . $cidade . ' – ' . $uf . '.</b></p>
 

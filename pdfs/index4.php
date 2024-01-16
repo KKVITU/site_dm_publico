@@ -68,7 +68,6 @@ $html = '
         <div style="text-align: center; margin: 0 auto; width: 90%;">
             <p><b>Anexo A</b></p>
             <p><b>DECLARAÇÃO DE SEGURANÇA DO ACERVO (DSA)</b></p>
-            <p><b>Ao Sr. Comandante da 8ª Região Militar</b></p>
 
             <p style="margin-bottom: 40px; text-align: left; margin-top: 50px">EU, <b>' . $nome_cliente . '</b>, ' . $nacionalidade . ', ' . $estado_civil . ', natural de ' . $naturalidade . ', nascido em ' . $data_nascimento . ', ' . $profissao . ', residindo em <b>' . $rua . ', ' . $numero_casa . ', CEP ' . $cep . ', ' . $ponto_referencia . ' – ' . $cidade . ' – ' . $uf . '</b> e CPF <b>' . $cpf . '</b>.</p>
 

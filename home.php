@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Minha Página PHP</title>
+    <title>DM Armas Ltda</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .navbar {
@@ -114,11 +114,13 @@
                                                                 Tratar
                                                             </button>
                                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                <a class="dropdown-item" target="_blank" href="visualizar_cliente.php?id=<?php echo $id; ?>">Ver Dados Completos</a>
+                                                                <a class="dropdown-item" href="visualizar_cliente.php?id=<?php echo $id; ?>">Ver Dados Completos</a>
+                                                                <a class="dropdown-item" href="editar_dados.php?id=<?php echo $id; ?>">Editar Dados</a>
                                                                 <a class="dropdown-item" target="_blank" href="pdfs/index.php?id=<?php echo $id ?>">Gerar Declaração de Endereço</a>
                                                                 <a class="dropdown-item" target="_blank" href="pdfs/index2.php?id=<?php echo $id ?>">Gerar Declaração de Guarda de Acervo</a>
                                                                 <a class="dropdown-item" target="_blank" href="pdfs/index3.php?id=<?php echo $id ?>">Gerar Declaração de Idoneidade</a>
-                                                                <a class="dropdown-item" target="_blank" href="pdfs/index4.php?id=<?php echo $id ?>">Gerar Declaração de Segurança do Acervo (DSA)</a>
+                                                                <a class="dropdown-item" target="_blank" href="pdfs/index4.php?id=<?php echo $id ?>">Gerar Declaração de Segurança do Acervo (DSA 1)</a>
+                                                                <a class="dropdown-item" target="_blank" href="pdfs/index5.php?id=<?php echo $id ?>">Gerar Declaração de Segurança do Acervo (DSA 2)</a>
                                                             </div>
                                                         </div>
                                                     </td>

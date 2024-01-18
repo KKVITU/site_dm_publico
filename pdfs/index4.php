@@ -27,7 +27,7 @@ foreach ($result as $linha) {
     $numero_casa = $linha['numero_casa'];
     $cidade = $linha['cidade'];
     $uf = $linha['uf'];
-    $ponto_referencia = $linha['ponto_referencia'];
+    $bairro = $linha['bairro'];
     $telefone_contato = $linha['telefone_contato'];
     $celular_contato = $linha['celular_contato'];
 }
@@ -69,7 +69,7 @@ $html = '
             <p><b>Anexo A</b></p>
             <p><b>DECLARAÇÃO DE SEGURANÇA DO ACERVO (DSA)</b></p>
 
-            <p style="margin-bottom: 40px; text-align: left; margin-top: 50px">EU, <b>' . $nome_cliente . '</b>, ' . $nacionalidade . ', ' . $estado_civil . ', natural de ' . $naturalidade . ', nascido em ' . $data_nascimento . ', ' . $profissao . ', residindo em <b>' . $rua . ', ' . $numero_casa . ', CEP ' . $cep . ', ' . $ponto_referencia . ' – ' . $cidade . ' – ' . $uf . '</b> e CPF <b>' . $cpf . '</b>.</p>
+            <p style="margin-bottom: 40px; text-align: left; margin-top: 50px">EU, <b>' . $nome_cliente . '</b>, ' . $nacionalidade . ', ' . $estado_civil . ', natural de ' . $naturalidade . ', nascido em ' . $data_nascimento . ', ' . $profissao . ', residindo em <b>' . $rua . ', ' . $numero_casa . ', CEP ' . $cep . ', ' . $bairro . ' – ' . $cidade . ' – ' . $uf . '</b> e CPF <b>' . $cpf . '</b>.</p>
 
             <p style="margin-bottom: 40px; text-align: left;"><b>DECLARO</b>, para fim de (concessão, revalidação de Registro no Comando do Exército ou de apostilamento), que o local de guarda do meu acervo de <b>Colecionador, atirador desportivo e/ou caçador excepcional</b>, possui cofre ou lugar seguro, com tranca, para armazenamento das armas de fogo desmuniciadas de que sou proprietário, e de que adotarei as medidas necessárias para impedir que menor de dezoito anos de idade ou pessoa civilmente incapaz se apodere de arma de fogo sob minha posse ou de minha propriedade, observado o disposto no art. 13 da Lei nº 10.826, de 2003.</p>
 

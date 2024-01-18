@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Minha Página PHP</title>
+    <title>DM Armas Ltda</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .navbar {
@@ -35,7 +35,6 @@
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <a style="cursor: pointer;color: white" class="navbar-brand" href="#">DM Armas Ltda</a>
@@ -81,6 +80,7 @@
                                         $rua = $linha['rua'];
                                         $cep = $linha['cep'];
                                         $numero_casa = $linha['numero_casa'];
+                                        $bairro = $linha['bairro'];
                                         $cidade = $linha['cidade'];
                                         $uf = $linha['uf'];
                                         $ponto_referencia = $linha['ponto_referencia'];
@@ -206,6 +206,16 @@
 
                                             <div class="col-md-6">
                                                 <div class="card-body">
+                                                    <label for="tipo">Bairro:</label>
+                                                    <input disabled class="form-control" value="<?php echo $bairro ?>" type="text" placeholder="" name="bairro" id="bairro">
+                                                    <div class="invalid-feedback">
+                                                        Insira o Bairro
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="card-body">
                                                     <label for="tipo">CEP:</label>
                                                     <input disabled class="form-control" value="<?php echo $cep ?>" type="text" placeholder="" name="cep" id="cep" maxlength="9" oninput="formatarCEP(this)">
                                                     <div class="invalid-feedback">
@@ -244,7 +254,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-6">
+                                            <!-- <div class="col-md-6">
                                                 <div class="card-body">
                                                     <label for="tipo">Ponto de Referência:</label>
                                                     <input disabled class="form-control" value="<?php echo $ponto_referencia ?>" type="text" placeholder="" name="pnt_refer" id="pnt_refer">
@@ -262,7 +272,7 @@
                                                         Insira o Telefone de contato
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
 
                                             <div class="col-md-6">
                                                 <div class="card-body">

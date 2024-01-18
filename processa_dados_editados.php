@@ -12,6 +12,7 @@ if ($conexao->connect_error) {
     die("Falha na conexão: " . $conexao->connect_error);
 }
 
+$id = $_POST['id'];
 $nome_cliente = strtoupper($_POST['nome_cliente']);
 $naturalidade = ucfirst($_POST['naturalidade']);
 $dt_nasc = $_POST['dt_nasc'];
@@ -29,13 +30,29 @@ $bairro = ucfirst($_POST['bairro']);
 $uf = strtoupper($_POST['uf']);
 $cel_Contato = $_POST['cel_Contato'];
 
-$sql = "INSERT INTO Cliente (nome_cliente, nacionalidade, naturalidade, data_nascimento, profissao, estado_civil, identidade, orgao_expedidor, cpf, rua, cep, numero_casa, cidade, uf, celular_contato, bairro)
-        VALUES ('$nome_cliente', '$nacionalidade', '$naturalidade', '$dt_nasc', '$profissao', '$estado_civil', '$identidade', '$oex_identidade', '$cpf', '$rua', '$cep', '$num_casa', '$cidade', '$uf', '$cel_Contato', '$bairro')";
+$sql = "UPDATE cliente SET 
+            nome_cliente='$nome_cliente', 
+            naturalidade='$naturalidade', 
+            data_nascimento='$dt_nasc', 
+            profissao='$profissao', 
+            identidade='$identidade', 
+            nacionalidade='$nacionalidade', 
+            orgao_expedidor='$oex_identidade', 
+            estado_civil='$estado_civil', 
+            cpf='$cpf', 
+            rua='$rua', 
+            cep='$cep', 
+            numero_casa='$num_casa', 
+            cidade='$cidade', 
+            bairro='$bairro', 
+            uf='$uf', 
+            celular_contato='$cel_Contato' 
+        WHERE id=$id";
 
 if ($conexao->query($sql) === TRUE) {
-    echo "Registro inserido com sucesso!";
+    echo "Salvou";
 } else {
-    echo "Erro ao inserir registro: " . $conexao->error;
+    echo "Error updating record: " . $conexao->error;
 }
 
 $conexao->close();

@@ -5,8 +5,6 @@ require '../vendor/autoload.php';
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
-$dompdf = new Dompdf();
-
 $id = $_GET['id'];
 
 include('../conexao.php');
@@ -28,9 +26,10 @@ foreach ($result as $linha) {
     $cep = $linha['cep'];
     $numero_casa = $linha['numero_casa'];
     $cidade = $linha['cidade'];
-    $uf = $linha['uf'];
     $bairro = $linha['bairro'];
-    $telefone_contato = $linha['telefone_contato'];
+    $uf = $linha['uf'];
+    //$ponto_referencia = $linha['ponto_referencia'];
+    //$telefone_contato = $linha['telefone_contato'];
     $celular_contato = $linha['celular_contato'];
 }
 
@@ -62,23 +61,34 @@ $mesPorExtenso = $mesesPorExtenso[$numeroMes];
 $dataFormatada = $dia .' de '. $mesPorExtenso .' de '. $ano;
 
 
+$dompdf = new Dompdf();
+
 $html = '
     <body style="border: 2px solid #000; padding: 50px; box-sizing: border-box; margin: 0;">
 
         <div style="text-align: center; margin: 0 auto; width: 90%;">
-            <p style="font-size: 20px"><b>DECLARAÇÃO DE IDONEIDADE.</b></p>
+            <p><b>Anexo A</b></p>
+            <p><b>DECLARAÇÃO DE SEGURANÇA DO ACERVO (DSA)</b></p>
+            <p><b>Ao Sr. Comandante</b></p>
 
-            <p style="margin-bottom: 40px; text-align: left; margin-top: 50px">Eu, <b>' . $nome_cliente . '</b>, ' . $nacionalidade . ', ' . $estado_civil . ', natural de ' . $naturalidade . ', nascido em ' . $data_nascimento . ', ' . $profissao . ', portador da carteira de identidade nº <b>' . $identidade . '</b> ' . $orgao_expedidor . ', inscrito no CPF sob o nº <b>' . $cpf . '</b>, residente e domiciliado na <b>' . $rua . ', ' . $numero_casa . ', CEP ' . $cep . ', ' . $bairro . ' – ' . $cidade . ' – ' . $uf . '.</b></p>
+            <p style="margin-bottom: 40px; text-align: left; margin-top: 50px">EU, <b>' . $nome_cliente . '</b>, ' . $nacionalidade . ', ' . $estado_civil . ', natural de ' . $naturalidade . ', nascido em ' . $data_nascimento . ', ' . $profissao . ', residindo em <b>' . $rua . ', ' . $numero_casa . ', CEP ' . $cep . ', ' . $bairro .' – ' . $cidade . ' – ' . $uf . '</b> e CPF <b>' . $cpf . '</b>.</p>
 
-            <p style="margin-bottom: 40px; text-align: left;"><b>DECLARO</b> sob as penas da lei, que possuo Bons antecedentes e Idoneidade moral e que não respondo à Inquérito policial ou processo Criminal e estou ciente de que, em caso de Falsidade Ideológica, ficarei sujeito às sanções prescritas no Código Penal e às demais cominações legais aplicáveis.</p>
+            <p style="margin-bottom: 40px; text-align: left;"><b>DECLARO</b>, para fim de (concessão, revalidação de Registro no Comando do Exército ou de apostilamento), que o local de guarda do meu acervo de <b>Colecionador, atirador desportivo e/ou caçador excepcional</b>, possui cofre ou lugar seguro, com tranca, para armazenamento das armas de fogo desmuniciadas de que sou proprietário, e de que adotarei as medidas necessárias para impedir que menor de dezoito anos de idade ou pessoa civilmente incapaz se apodere de arma de fogo sob minha posse ou de minha propriedade, observado o disposto no art. 13 da Lei nº 10.826, de 2003.</p>
 
             <p style="margin-top: 150px; text-align: right;">São Luís – MA,  '.$dataFormatada.'.</p>
         </div>
 
-        <div style="position: absolute; bottom: 0; width: 100%; text-align: center; left: 50%; transform: translateX(-50%); margin-bottom: 30px">
+        <div style="position: absolute; bottom: 180px; width: 100%; text-align: center; left: 50%; transform: translateX(-50%); margin-bottom: 30px">
             <p>____________________________________________________</p>
             <p><b>' . $nome_cliente . '</b></p>
             <p>CPF. <b>' . $cpf . '</b></p>
+        </div>
+
+        <div style="position: absolute; bottom: 0; width: 100%; text-align: center; left: 50%; transform: translateX(-50%); margin-bottom: 30px">
+            <p>____________________________________________________</p>
+            <p><b>PRESIDENTE DO CLUBE: ALBERTO ANTONIO DA CUNHA SABOIA</b></p>
+            <p>PRESIDENTE COMBATHE TRAINING - CLUBE DE TIRO</p>
+            <p>CPF: 921.286.963-72</p>
         </div>
     </body>
 ';
@@ -89,4 +99,4 @@ $dompdf->setPaper('A4', 'portrait');
 
 $dompdf->render();
 
-$dompdf->stream("DECLARAÇÃO_DE_IDONEIDADE.pdf", array("Attachment" => false));
+$dompdf->stream("DECLARAÇÃO_DE_SEGURANÇA_DO_ACERVO_DSA2.pdf", array("Attachment" => false));

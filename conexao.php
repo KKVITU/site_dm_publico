@@ -1,9 +1,9 @@
 <?php
 
-$endereco = "localhost";
-$usuario = "root";
-$senha = "";
-$banco = "bd_dados";
+$host = "localhost";
+$usuario = "dmar9896_root";
+$senha = "Dm@Armas";
+$banco = "dmar9896_bd_dados";
 
 $link = mysqli_connect($endereco, $usuario, $senha, $banco);
 

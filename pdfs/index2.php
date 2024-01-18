@@ -29,7 +29,7 @@ foreach ($result as $linha) {
     $numero_casa = $linha['numero_casa'];
     $cidade = $linha['cidade'];
     $uf = $linha['uf'];
-    $ponto_referencia = $linha['ponto_referencia'];
+    $bairro = $linha['bairro'];
     $telefone_contato = $linha['telefone_contato'];
     $celular_contato = $linha['celular_contato'];
 }
@@ -68,7 +68,7 @@ $html = '
         <div style="text-align: center; margin: 0 auto; width: 90%;">
             <p><b>DECLARAÇÃO DE GUARDA DO ACERVO.</b></p>
 
-            <p style="margin-bottom: 40px; text-align: left; margin-top: 50px">Eu, <b>' . $nome_cliente . '</b>, ' . $nacionalidade . ', ' . $estado_civil . ', natural de ' . $naturalidade . ', nascido em ' . $data_nascimento . ', ' . $profissao . ', portador da carteira de identidade nº <b>' . $identidade . '</b> ' . $orgao_expedidor . ', inscrito no CPF sob o nº <b>' . $cpf . '</b>, residente e domiciliado na <b>' . $rua . ', ' . $numero_casa . ', CEP ' . $cep . ', ' . $ponto_referencia . ' – ' . $cidade . ' – ' . $uf . '.</b></p>
+            <p style="margin-bottom: 40px; text-align: left; margin-top: 50px">Eu, <b>' . $nome_cliente . '</b>, ' . $nacionalidade . ', ' . $estado_civil . ', natural de ' . $naturalidade . ', nascido em ' . $data_nascimento . ', ' . $profissao . ', portador da carteira de identidade nº <b>' . $identidade . '</b> ' . $orgao_expedidor . ', inscrito no CPF sob o nº <b>' . $cpf . '</b>, residente e domiciliado na <b>' . $rua . ', ' . $numero_casa . ', CEP ' . $cep . ', ' . $bairro . ' – ' . $cidade . ' – ' . $uf . '.</b></p>
 
             <p style="margin-bottom: 40px; text-align: left;"><b>DECLARO</b>, para fim de Concessão de Certificado de Registro no Exército Brasileiro, que o local de guarda do meu acervo de Atirador Desportivo, será no mesmo local solicitado no presente apostilamento de endereço, localizado na residente e domiciliado na <b>' . $rua . ', ' . $numero_casa . ', CEP ' . $cep . ', ' . $ponto_referencia . ' – ' . $cidade . ' – ' . $uf . '.</b></p>
 

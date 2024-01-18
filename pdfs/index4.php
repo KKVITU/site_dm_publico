@@ -26,9 +26,10 @@ foreach ($result as $linha) {
     $cep = $linha['cep'];
     $numero_casa = $linha['numero_casa'];
     $cidade = $linha['cidade'];
-    $uf = $linha['uf'];
     $bairro = $linha['bairro'];
-    $telefone_contato = $linha['telefone_contato'];
+    $uf = $linha['uf'];
+    //$ponto_referencia = $linha['ponto_referencia'];
+    //$telefone_contato = $linha['telefone_contato'];
     $celular_contato = $linha['celular_contato'];
 }
 
@@ -68,6 +69,7 @@ $html = '
         <div style="text-align: center; margin: 0 auto; width: 90%;">
             <p><b>Anexo A</b></p>
             <p><b>DECLARAÇÃO DE SEGURANÇA DO ACERVO (DSA)</b></p>
+            <p><b>Ao Sr. Comandante</b></p>
 
             <p style="margin-bottom: 40px; text-align: left; margin-top: 50px">EU, <b>' . $nome_cliente . '</b>, ' . $nacionalidade . ', ' . $estado_civil . ', natural de ' . $naturalidade . ', nascido em ' . $data_nascimento . ', ' . $profissao . ', residindo em <b>' . $rua . ', ' . $numero_casa . ', CEP ' . $cep . ', ' . $bairro . ' – ' . $cidade . ' – ' . $uf . '</b> e CPF <b>' . $cpf . '</b>.</p>
 
@@ -84,7 +86,8 @@ $html = '
 
         <div style="position: absolute; bottom: 0; width: 100%; text-align: center; left: 50%; transform: translateX(-50%); margin-bottom: 30px">
             <p>____________________________________________________</p>
-            <p><b>PRESIDENTE DO CLUBE</b></p>
+            <p><b>CLUBE DE ATIRADORES DO MARANHÃO - CLAM</b></p>
+            <p><b>CNPJ: 02.322.509/0001-86</b></p>
         </div>
     </body>
 ';
@@ -95,4 +98,4 @@ $dompdf->setPaper('A4', 'portrait');
 
 $dompdf->render();
 
-$dompdf->stream("DECLARAÇÃO_DE_SEGURANÇA_DO_ACERVO_.pdf", array("Attachment" => false));
+$dompdf->stream("DECLARAÇÃO_DE_SEGURANÇA_DO_ACERVO_DSA1.pdf", array("Attachment" => false));

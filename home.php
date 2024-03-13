@@ -70,6 +70,7 @@
                                                 <th>DATA DE NASCIMENTO</th>
                                                 <th>IDENTIDADE</th>
                                                 <th>CPF</th>
+                                                <th>IMOVÉL PRÓPRIO</th>
                                                 <th>TRATAR</th>
                                             </tr>
                                         </thead>
@@ -109,6 +110,17 @@
                                                         <?php echo $cpf = $linha['cpf']; ?>
                                                     </td>
                                                     <td>
+                                                        <?php
+                                                        $imovel_status = $linha['imovel_status'];
+
+                                                        if ($imovel_status == '0') {
+                                                            echo 'Sim';
+                                                        } else {
+                                                            echo 'Não';
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td>
                                                         <div class="dropdown">
                                                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                 Tratar
@@ -117,6 +129,9 @@
                                                                 <a class="dropdown-item" href="visualizar_cliente.php?id=<?php echo $id; ?>">Ver Dados Completos</a>
                                                                 <a class="dropdown-item" href="editar_dados.php?id=<?php echo $id; ?>">Editar Dados</a>
                                                                 <a class="dropdown-item" target="_blank" href="pdfs/index.php?id=<?php echo $id ?>">Gerar Declaração de Endereço</a>
+                                                                <?php if ($imovel_status == '1') { ?>
+                                                                    <a class="dropdown-item" target="_blank" href="pdfs/index6.php?id=<?php echo $id ?>">Gerar Declaração de Residência</a>
+                                                                <?php } ?>
                                                                 <a class="dropdown-item" target="_blank" href="pdfs/index2.php?id=<?php echo $id ?>">Gerar Declaração de Guarda de Acervo</a>
                                                                 <a class="dropdown-item" target="_blank" href="pdfs/index3.php?id=<?php echo $id ?>">Gerar Declaração de Idoneidade</a>
                                                                 <a class="dropdown-item" target="_blank" href="pdfs/index4.php?id=<?php echo $id ?>">Gerar Declaração de Segurança do Acervo (DSA 1)</a>

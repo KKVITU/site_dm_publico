@@ -68,6 +68,7 @@
                                     $select = "SELECT * FROM cliente WHERE id = $id";
                                     $result = mysqli_query($link, $select);
                                     foreach ($result as $linha) {
+                                        //dados do cliente
                                         $id = $linha['id'];
                                         $nome_cliente = $linha['nome_cliente'];
                                         $naturalidade = $linha['naturalidade'];
@@ -87,6 +88,15 @@
                                         $ponto_referencia = $linha['ponto_referencia'];
                                         $telefone_contato = $linha['telefone_contato'];
                                         $celular_contato = $linha['celular_contato'];
+
+                                        //dados proprietario
+                                        $imovel_status = $linha['imovel_status'];
+                                        $nome_proprietario = $linha['nome_proprietario'];
+                                        $dt_nasc_proprietario = date('d/m/Y', strtotime($linha['dt_nasc_proprietario']));
+                                        $identidade_proprietario = $linha['identidade_proprietario'];
+                                        $nacionalidade_proprietario = $linha['nacionalidade_proprietario'];
+                                        $oex_identidade_proprietario = $linha['oex_identidade_proprietario'];
+                                        $cpf_proprietario = $linha['cpf_proprietario'];
                                     }
 
                                     ?>
@@ -288,6 +298,96 @@
                                             </div>
 
                                             <div class="row">
+                                                <!-- Imovel é do cliente? -->
+                                                <div class="col-md-6">
+                                                    <div class="card-body">
+                                                        <label for="tipo">Este imóvel é do Cliente?:</label>
+                                                        <label for="">Sim</label>
+                                                        <input required type="radio" value="0" name="imovel_status" id="simImovel" onclick="hideOwnerDetails()" <?php echo ($imovel_status == 0) ? 'checked' : ''; ?>>
+                                                        <label for="">Não</label>
+                                                        <input required type="radio" value="1" name="imovel_status" id="naoImovel" onclick="showOwnerDetails()" <?php echo ($imovel_status == 1) ? 'checked' : ''; ?>>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div id="ownerDetails" style="<?php echo ($imovel_status == 1) ? 'display: block;' : 'display: none;'; ?>">
+                                                <div class="row">
+
+                                                    <h2 for="Endereço">Dados do Proprietario do imóvel:</h2>
+                                                    <!-- Dados Pessoais do proprietario -->
+                                                    <div class="col-md-6">
+                                                        <div class="card-body">
+                                                            <label for="tipo">Nome Do proprietario:</label>
+                                                            <input required class="form-control" value="<?php echo $nome_proprietario ?>" type="text" placeholder="" name="nome_proprietario" id="nome_proprietario">
+                                                            <div class="invalid-feedback">
+                                                                Insira o Nome Do proprietario
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="card-body">
+                                                            <label for="tipo">Nacionalidade:</label>
+                                                            <input required class="form-control" value="<?php echo $nacionalidade_proprietario ?>" type="text" placeholder="" name="nacionalidade_proprietario" id="nacionalidade_proprietario">
+                                                            <div class="invalid-feedback">
+                                                                Insira a Nacionalidade
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="card-body">
+                                                            <label for="tipo">Data de Nascimento:</label>
+                                                            <input required class="form-control" value="<?php echo $linha['dt_nasc_proprietario'] ?>" type="date" placeholder="" name="dt_nasc_proprietario" id="dt_nasc_proprietario">
+                                                            <div class="invalid-feedback">
+                                                                Insira a data de Nascimento
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="card-body">
+                                                            <label for="tipo">Identidade:</label>
+                                                            <input required class="form-control" value="<?php echo $identidade_proprietario ?>" type="text" placeholder="" name="identidade_proprietario" id="identidade_proprietario">
+                                                            <div class="invalid-feedback">
+                                                                Insira a Identidade
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="card-body">
+                                                            <label for="tipo">Orgão Expedidor:</label>
+                                                            <input required class="form-control" value="<?php echo $oex_identidade_proprietario ?>" type="text" placeholder="" name="oex_identidade_proprietario" id="oex_identidade_proprietario" oninput="adicionarBarra()">
+                                                            <div class="invalid-feedback">
+                                                                Insira o Orgão Expedidor
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="card-body">
+                                                            <label for="tipo">CPF:</label>
+                                                            <input required class="form-control" value="<?php echo $cpf_proprietario ?>" type="text" placeholder="" name="cpf_proprietario" id="cpf_proprietario" maxlength="14" oninput="formatarCPF(this)">
+                                                            <div class="invalid-feedback">
+                                                                Insira o CPF
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <script>
+                                                function showOwnerDetails() {
+                                                    document.getElementById('ownerDetails').style.display = 'block';
+                                                }
+
+                                                function hideOwnerDetails() {
+                                                    document.getElementById('ownerDetails').style.display = 'none';
+                                                }
+                                            </script>
+
+                                            <div class="row">
                                                 <button id="btn_salvar" type="submit" class="btn btn-success btn-lg btn-block">Atualizar Dados</button>
                                             </div>
                                         </div>
@@ -354,6 +454,24 @@
     <script>
         function adicionarBarra() {
             var inputElement = document.getElementById("oex_identidade");
+
+            var valor = inputElement.value;
+
+            valor = valor.replace(/\//g, '');
+
+            if (valor.length > 6) {
+                valor = valor.slice(0, 6);
+            }
+
+            if (valor.length >= 4) {
+                var novoValor = valor.slice(0, -2) + '/' + valor.slice(-2);
+
+                inputElement.value = novoValor;
+            }
+        }
+
+        function adicionarBarra() {
+            var inputElement = document.getElementById("oex_identidade_proprietario");
 
             var valor = inputElement.value;
 
